@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Of DOM</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+
+    <style>
+        #fruits-title{
+            color: black;
+        }
+
+        .important-places{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my DOM </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolores iste culpa earum quis, saepe voluptas doloribus libero rem? Ducimus id illo ad nesciunt quidem pariatur minima corrupti, alias autem.</p>
+
+    </header>
+
+    <main id="main-container">
+        <section>
+            <h1>My Awesom DOM </h1>
+
+        <ul>
+            <li>jalali set</li>
+            <li>shafayet</li>
+            <li>bonobashi</li>
+        </ul>
+        </section>
+
+        <section class="fruits-continer">
+            <h1 id="fruits-title" class="lol">Fruits I like</h1>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+
+        <section id="places_like">
+            <h1>Placec I like</h1>
+            <ul id="places-list">
+                <li class="important-places">Dhaka</li>
+                <li class="important-places">Bandarban</li>
+                <li class="important-places">kataban</li>
+                <li>chataban</li>
+            </ul>
+        </section>
+
+
+
+        <section id="food_like" >
+
+            <h1>This is from styleInJS</h1>
+            <h1>Food I like</h1>
+            <ul >
+                <li class="important-food">biriani</li>
+                <li class="important-food">polao</li>
+                <li class="important-food">kacchi</li>
+                <li>chataban</li>
+            </ul>
+        </section>
+    </main>
+    
+  
+    <script>
+ //option 1: getElementsByTagName
+        const liList = document.getElementsByTagName("li");
+       
+       for(const li of liList){
+        // console.log(li);
+        console.log(li.innerText);;
+       }
+       
+        // console.log(liList)
+        // console.log("inside the html file")
+    
+       const allHadings = document.getElementsByTagName('h1');
+       for (const h1 of allHadings) {
+        console.log(h1.innerText);
+       }
+
+
+        //option 2: getElementById
+       const fruitTitle = document.getElementById('fruits-title');
+       fruitTitle.innerText = 'Fruits Changed By JS'
+       
+       
+       //option 3: getElementsByClassName
+       const places = document.getElementsByClassName("important-places");
+       console.log(places); // here output HTMLCollection is a dynamic/ live which can be accessed by for of loop 
+
+       for (const place of places ){
+        console.log(place.innerText);
+  
+       }
+
+    //option 4: querySelectorAll (sobgulo dey)
+
+    const someLi = document.querySelectorAll (".fruits-continer li");
+    console.log(someLi); // here output NodeList is a Static which can be accessed by forEach + for of loop
+    for (const li of someLi ){
+        console.log(li.innerText);
+
+       }
+
+
+
+
+     //option 5: querySelector (just 1st item ta dey)
+
+     const someLi2 = document.querySelector (".fruits-continer li");
+    console.log(someLi2.innerText);
+   
+    </script>
+
+<script src="./js/dom.js"></script>
+<script src="./append.js"></script>
+<script src="./styleInJs.js"></script>
+</body>
+</html>
